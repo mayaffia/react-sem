@@ -7,10 +7,10 @@ function App() {
 
   return (
     <BrowserRouter>
-        <Routes>
-            <Route path='users' element={<Users />} /> 
-            <Route path="users/:userId" element={<UserDetails />}/>
-        </Routes>
+      <Routes>
+        <Route path='users' element={<Users />} />
+        <Route path="users/:userId" element={<UserDetails />} />
+      </Routes>
     </BrowserRouter>
   )
 }
