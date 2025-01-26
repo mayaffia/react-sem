@@ -33,7 +33,6 @@ const UserDetails = () => {
           onChange={handleNameChange}
         />
         <button style={{ marginLeft: '100px' }} onClick={saveNewName}>Сохранить изменения</button>
-
         <Link to='/users'> <button> Назад </button></Link>
       </p>
     </div>

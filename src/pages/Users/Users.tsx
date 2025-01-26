@@ -9,7 +9,6 @@ const Users = () => {
 
   return (
     <div>
-      <Outlet />
       <h1>Список пользователей</h1>
       <ul>
         {users.map(user => (
