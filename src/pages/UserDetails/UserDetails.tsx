@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { selectUserById, selectUsers, updateUserName } from '../../store/userSlice';
 import { RootState } from '../../store/store';
 
 const UserDetails = () => {
   const { userId } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   
   const user = useSelector((state: RootState) => selectUserById(state, Number(userId)));
 
@@ -21,6 +22,9 @@ const UserDetails = () => {
     dispatch(updateUserName({ id: user.id, name: newName }));
   }
 
+  const goBack = () => {
+    navigate('/users')
+  }
   return (
     <div>
       <h1>Детальная информация о пользователе</h1>
@@ -33,7 +37,7 @@ const UserDetails = () => {
           onChange={handleNameChange}
         />
         <button style={{ marginLeft: '100px' }} onClick={saveNewName}>Сохранить изменения</button>
-        <Link to='/users'> <button> Назад </button></Link>
+         <button onClick={goBack}> Назад </button>
       </p>
     </div>
   );
